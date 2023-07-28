@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>image slider</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="images">
+        <img
+          src="images/pexels-ameruverse-digital-marketing-media-1643409.jpg"
+        />
+        <img src="images/pexels-christian-heitz-842711.jpg" />
+        <img src="images/pexels-francesco-ungaro-1525041.jpg" />
+        <img src="images/pexels-irina-iriser-1379636.jpg" />
+        <img src="images/pexels-maxime-francis-2246476.jpg" />
+      </div>
+    </div>
+  </body>
+  <script>
+    var indexValue = 0;
+    function slideshow() {
+      setTimeout(slideshow, 2500);
+      var x;
+      const img = document.querySelectorAll("img");
+      for (x = 0; x < img.length; x++) {
+        img[x].style.display = "none";
+      }
+      indexValue++;
+      if (indexValue > img.length) {
+        indexValue = 1;
+      }
+      img[indexValue - 1].style.display = "block";
+    }
+    slideshow();
+  </script>
+</html>
+
+style.css
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.content {
+    height: 400px;
+    width: 750px;
+    overflow: hidden;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+}
+.content .images {
+    height: 100%;
+    width: 100%;
+}
+
+.images img {
+    height: 100%;
+    width: 100%;
+}
+
